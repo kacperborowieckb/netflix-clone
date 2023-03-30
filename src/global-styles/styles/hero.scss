@@ -53,11 +53,19 @@
     border: none;
     outline: none;
     background-color: var(--clr-white);
+    cursor: pointer;
+  }
+
+  & &__play-btn:hover,
+  & &__info-btn:hover,
+  & &__play-btn:focus,
+  & &__info-btn:focus {
+    opacity: 0.8;
   }
 
   & &__info-btn {
     color: var(--clr-white);
-    background-color: gray;
+    background-color: hsla(0, 0%, 55%, 0.9);
     padding: 0.75rem 1.75rem;
     padding-left: 1.25rem;
   }
@@ -94,6 +102,10 @@
     & &__info-btn {
       padding-left: 0.75rem;
       padding-right: 0.75rem;
+    }
+
+    & &__age-restriction {
+      width: 60px;
     }
   }
 }

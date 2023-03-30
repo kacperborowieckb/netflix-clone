@@ -1,7 +1,11 @@
-import './global-styles/styles.scss';
+import Navbar from './components/Navbar';
 
 function App() {
-  return <div className="App">Cos tam</div>;
+  return (
+    <>
+      <Navbar />
+    </>
+  );
 }
 
 export default App;

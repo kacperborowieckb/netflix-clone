@@ -2,16 +2,17 @@
   --fs-desc: 1.5rem;
   --fs-btn: 1.25rem;
   --width-play-icon: 48px;
-  background-image: url('/src/assets/film-background.png');
-  width: 100%;
-  aspect-ratio: 16/9;
-  background-size: 100%;
+  background: url('/src/assets/film-background.png');
+  background-position: center;
+  object-fit: cover;
+  background-size: cover;
+  height: 100vh;
   position: relative;
 
   & &__desc {
-    padding-left: 4rem;
-    padding-top: 11%;
-    max-width: 40%;
+    padding: 0 4rem;
+    padding-top: 12rem;
+    max-width: 650px;
     height: 100%;
     background: linear-gradient(90deg, hsla(0, 0%, 0%, 0.6), hsla(0, 0%, 0%, 0));
   }
@@ -70,7 +71,7 @@
   & &__age-restriction {
     position: absolute;
     right: 0;
-    bottom: 35%;
+    bottom: 25%;
     color: var(--clr-white);
     width: 120px;
     font-size: 1.5rem;
@@ -78,5 +79,21 @@
     padding-left: 0.75rem;
     background-color: hsla(0, 0%, 0%, 0.5);
     border-left: 3px solid hsla(0, 0%, 100%, 0.8);
+  }
+
+  @media (max-width: 550px) {
+    --fs-desc: 1.15rem;
+    --fs-btn: 1rem;
+
+    & &__desc {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    & &__play-btn,
+    & &__info-btn {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
   }
 }

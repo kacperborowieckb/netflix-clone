@@ -31,13 +31,13 @@
 
   & &__username {
     display: block;
-    color: white;
+    color: var(--clr-white);
   }
 
   & &__log-out {
     border-top: 1px solid gray;
     padding: 0.5rem 1rem;
     text-align: center;
-    color: white;
+    color: var(--clr-white);
   }
 }

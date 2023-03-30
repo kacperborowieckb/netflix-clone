@@ -1,12 +1,17 @@
 .navbar {
   --fs-list-item: 1rem;
-  --icon-size: 32px;
-  --profile-picture-size: 48px;
-  --arrow-icon-size: 24px;
+  --icon-size: 24px;
+  --profile-picture-size: 36px;
+  --arrow-icon-size: 18px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   display: flex;
   align-items: center;
   padding: 1rem 4rem;
-  background: linear-gradient(hsla(0, 0%, 0%, 0.4), hsla(0, 0%, 0%, 0));
+  background: linear-gradient(hsla(0, 0%, 0%, 0.75), hsla(0, 0%, 0%, 0));
+  z-index: 1;
 
   & &__logo {
     width: 100px;
@@ -42,7 +47,7 @@
   }
 
   & &__profile-picture {
-    border-radius: 12px;
+    border-radius: 6px;
     width: var(--profile-picture-size);
   }
 

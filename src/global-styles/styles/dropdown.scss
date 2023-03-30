@@ -1,0 +1,43 @@
+.dropdown {
+  position: absolute;
+  background-color: hsla(0, 0%, 0%, 0.88);
+  top: 150%;
+  left: -125%;
+
+  & &__list {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  & &__list-item {
+    list-style: none;
+    padding: 0;
+  }
+
+  & &__list-item > * {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 150px;
+  }
+
+  & &__profile-picture {
+    border-radius: 12px;
+    width: 32px;
+    aspect-ratio: 1/1;
+  }
+
+  & &__username {
+    display: block;
+    color: white;
+  }
+
+  & &__log-out {
+    border-top: 1px solid gray;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    color: white;
+  }
+}

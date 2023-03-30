@@ -1,12 +1,15 @@
 .navbar {
   --fs-list-item: 1rem;
+  --icon-size: 32px;
+  --profile-picture-size: 48px;
+  --arrow-icon-size: 24px;
   display: flex;
   align-items: center;
-  padding: 0 2rem;
+  padding: 1rem 4rem;
   background: linear-gradient(hsla(0, 0%, 0%, 0.4), hsla(0, 0%, 0%, 0));
 
   & &__logo {
-    width: 150px;
+    width: 100px;
   }
 
   & &__list {
@@ -26,7 +29,31 @@
     gap: 1rem;
   }
 
+  & &__profile {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  & &__search-icon,
+  & &__notifications-icon {
+    width: var(--icon-size);
+  }
+
   & &__profile-picture {
     border-radius: 12px;
+    width: var(--profile-picture-size);
+  }
+
+  & &__dropdown-arrow {
+    width: var(--arrow-icon-size);
+  }
+
+  @media (max-width: 1050px) {
+    --fs-list-item: 0.7rem;
+    --icon-size: 24px;
+    --profile-picture-size: 36px;
+    --arrow-icon-size: 18px;
   }
 }

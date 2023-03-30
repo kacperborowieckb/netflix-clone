@@ -1,0 +1,111 @@
+.hero {
+  --fs-desc: 1.5rem;
+  --fs-btn: 1.25rem;
+  --width-play-icon: 48px;
+  background: url('/src/assets/film-background.png');
+  background-position: center;
+  object-fit: cover;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+
+  & &__desc {
+    padding: 0 4rem;
+    padding-top: 12rem;
+    max-width: 650px;
+    height: 100%;
+    background: linear-gradient(90deg, hsla(0, 0%, 0%, 0.6), hsla(0, 0%, 0%, 0));
+  }
+
+  & &__film-title {
+    width: 100%;
+  }
+
+  & &__film-desc {
+    color: var(--clr-white);
+    text-shadow: 0px 2px 6px black;
+    font-size: var(--fs-desc);
+    margin-top: 1rem;
+  }
+
+  & &__buttons {
+    display: flex;
+    margin-top: 1.5rem;
+    gap: 1rem;
+  }
+
+  & &__play-icon {
+    width: var(--width-play-icon);
+  }
+  & &__info-icon {
+    width: calc(var(--width-play-icon) - 16px);
+  }
+
+  & &__play-btn,
+  & &__info-btn {
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    gap: 0.5rem;
+    padding: 0.25rem 1.75rem;
+    padding-left: 1.25rem;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    background-color: var(--clr-white);
+    cursor: pointer;
+  }
+
+  & &__play-btn:hover,
+  & &__info-btn:hover,
+  & &__play-btn:focus,
+  & &__info-btn:focus {
+    opacity: 0.8;
+  }
+
+  & &__info-btn {
+    color: var(--clr-white);
+    background-color: hsla(0, 0%, 55%, 0.9);
+    padding: 0.75rem 1.75rem;
+    padding-left: 1.25rem;
+  }
+
+  & &__play-btn > p,
+  & &__info-btn > p {
+    font-weight: bold;
+    font-size: var(--fs-btn);
+  }
+
+  & &__age-restriction {
+    position: absolute;
+    right: 0;
+    bottom: 25%;
+    color: var(--clr-white);
+    width: 120px;
+    font-size: 1.5rem;
+    padding: 0.6rem 0;
+    padding-left: 0.75rem;
+    background-color: hsla(0, 0%, 0%, 0.5);
+    border-left: 3px solid hsla(0, 0%, 100%, 0.8);
+  }
+
+  @media (max-width: 550px) {
+    --fs-desc: 1.15rem;
+    --fs-btn: 1rem;
+
+    & &__desc {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    & &__play-btn,
+    & &__info-btn {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+
+    & &__age-restriction {
+      width: 60px;
+    }
+  }
+}

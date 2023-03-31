@@ -3,10 +3,39 @@ import '../global-styles/styles.scss';
 const Slider = ({ title }) => {
   const slideAnimate = (direction) => {
     const slider = document.querySelector('.slider__items-container');
-    let index = getComputedStyle(slider).getPropertyValue('--index');
-    index = direction === 'left' ? Number(index) - 1 : Number(index) + 1;
-    slider.style.transform = `translateX(calc(-100% * ${index})`;
-    slider.style.setProperty('--index', index);
+
+    copyNode(slider).then(() => {
+      slider.style.transform = direction === 'right' ? 'translateX(-100%)' : 'translateX(100%)';
+      slider.style.setProperty('--index', index);
+    });
+  };
+
+  const copyNode = async (slider) => {
+    let items = getComputedStyle(document.querySelector('.slider')).getPropertyValue(
+      '--current-items'
+    );
+    let clonedSlider = slider.cloneNode(true);
+
+    let childs = [...clonedSlider.children];
+
+    for (let i = 0; i < items; i++) {
+      slider.appendChild(childs[i]);
+    }
+  };
+
+  const deleteChilds = (e) => {
+    let items = getComputedStyle(document.querySelector('.slider')).getPropertyValue(
+      '--current-items'
+    );
+
+    for (let i = 0; i < items; i++) {
+      e.target.firstChild.remove();
+    }
+    e.target.style.transition = 'none';
+    e.target.style.transform = `translateX(0)`;
+    setTimeout(() => {
+      e.target.style.transition = 'all 1s';
+    });
   };
 
   return (
@@ -21,7 +50,7 @@ const Slider = ({ title }) => {
         >
           <img src="/src/assets/previous.svg" alt="" />
         </button>
-        <div className="slider__items-container">
+        <div className="slider__items-container" onTransitionEnd={deleteChilds}>
           {Array.from(Array(12).keys()).map((i) => {
             return (
               <div className="slider__item" key={i}>

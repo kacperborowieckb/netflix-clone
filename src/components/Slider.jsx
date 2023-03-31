@@ -2,24 +2,30 @@ import '../global-styles/styles.scss';
 
 const Slider = ({ title }) => {
   const slideAnimate = (direction) => {
-    const slider = document.querySelector('.slider__items-container');
-
-    copyNode(slider).then(() => {
-      slider.style.transform = direction === 'right' ? 'translateX(-100%)' : 'translateX(100%)';
-      slider.style.setProperty('--index', index);
-    });
-  };
-
-  const copyNode = async (slider) => {
+    let slider = document.querySelector('.slider__items-container');
     let items = getComputedStyle(document.querySelector('.slider')).getPropertyValue(
       '--current-items'
     );
     let clonedSlider = slider.cloneNode(true);
-
     let childs = [...clonedSlider.children];
 
-    for (let i = 0; i < items; i++) {
-      slider.appendChild(childs[i]);
+    slider.setAttribute('data-direction', direction);
+
+    if (direction === 'right') {
+      for (let i = 0; i < items; i++) {
+        slider.appendChild(childs[i]);
+      }
+      slider.style.transform = 'translateX(-100%)';
+    } else {
+      for (let i = 0; i < items; i++) {
+        slider.prepend(childs[childs.length - i - 1]);
+      }
+      slider.style.transition = 'none';
+      slider.style.transform = 'translateX(-100%)';
+      setTimeout(() => {
+        slider.style.transition = 'all 1s';
+        slider.style.transform = 'translateX(0)';
+      });
     }
   };
 
@@ -28,14 +34,22 @@ const Slider = ({ title }) => {
       '--current-items'
     );
 
-    for (let i = 0; i < items; i++) {
-      e.target.firstChild.remove();
+    let direction = e.target.dataset.direction;
+
+    if (direction === 'right') {
+      for (let i = 0; i < items; i++) {
+        e.target.firstChild.remove();
+        e.target.style.transition = 'none';
+        e.target.style.transform = `translateX(0)`;
+        setTimeout(() => {
+          e.target.style.transition = 'all 1s';
+        });
+      }
+    } else {
+      for (let i = items; i > 0; i--) {
+        e.target.lastChild.remove();
+      }
     }
-    e.target.style.transition = 'none';
-    e.target.style.transform = `translateX(0)`;
-    setTimeout(() => {
-      e.target.style.transition = 'all 1s';
-    });
   };
 
   return (

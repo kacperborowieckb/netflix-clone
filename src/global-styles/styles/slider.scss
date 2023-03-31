@@ -16,6 +16,7 @@
   }
 
   & &__items-container {
+    --index: 0;
     display: flex;
     margin: 0 0.25rem;
     transition: all 1s;

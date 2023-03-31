@@ -1,4 +1,5 @@
 import '../global-styles/styles.scss';
+import Slider from './Slider';
 
 const Hero = () => {
   return (
@@ -21,6 +22,7 @@ const Hero = () => {
         </div>
         <div className="hero__age-restriction">13+</div>
       </div>
+      <Slider title="New Releases" />
     </div>
   );
 };

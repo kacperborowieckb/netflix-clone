@@ -20,8 +20,8 @@ const Hero = () => {
             <p>More Info</p>
           </button>
         </div>
-        <div className="hero__age-restriction">13+</div>
       </div>
+      <div className="hero__age-restriction">13+</div>
       <Slider title="New Releases" />
     </div>
   );

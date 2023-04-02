@@ -88,7 +88,7 @@ const Slider = ({ title, arr }) => {
             slideAnimate('left');
           }}
         >
-          <img src="/src/assets/previous.svg" alt="" />
+          <img src="/images/previous.svg" alt="" />
         </button>
         <div className="slider__items-container" onTransitionEnd={deleteChilds}>
           {arr.map((i) => {
@@ -96,7 +96,7 @@ const Slider = ({ title, arr }) => {
               <div className="slider__item" key={i}>
                 <a href="#">
                   <img
-                    src={'/src/assets/slider-img-' + i + '.jpg'}
+                    src={'/images/slider-img-' + i + '.jpg'}
                     alt="film img"
                     className="slider__img"
                   />
@@ -112,7 +112,7 @@ const Slider = ({ title, arr }) => {
             slideAnimate('right');
           }}
         >
-          <img src="/src/assets/next.svg" alt="" />
+          <img src="/images/next.svg" alt="" />
         </button>
       </div>
     </div>

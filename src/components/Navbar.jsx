@@ -56,7 +56,7 @@ const Navbar = () => {
   return (
     <div className="navbar" ref={navbar}>
       <a href="#">
-        <img src="/src/assets/netflix-logo.png" alt="netflix logo" className="navbar__logo" />
+        <img src="/images/netflix-logo.png" alt="netflix logo" className="navbar__logo" />
       </a>
       <div className="navbar__list-container">
         <a
@@ -94,24 +94,20 @@ const Navbar = () => {
       </div>
       <div className="navbar__user-section">
         <a href="#">
-          <img className="navbar__search-icon" src="/src/assets/search-icon.svg" alt="" />
+          <img className="navbar__search-icon" src="/images/search-icon.svg" alt="" />
         </a>
         <a href="#">
-          <img
-            className="navbar__notifications-icon"
-            src="/src/assets/notification-icon.svg"
-            alt=""
-          />
+          <img className="navbar__notifications-icon" src="/images/notification-icon.svg" alt="" />
         </a>
         <div className="navbar__profile" onMouseOver={openDropdown} onMouseLeave={closeDropdown}>
           <a href="#">
             <img
               className="navbar__profile-picture"
-              src="/src/assets/profile-picture.jpg"
+              src="/images/profile-picture.jpg"
               alt="profile picture"
             />
           </a>
-          <img src="/src/assets/dropdown-arrow.svg" alt="" className="navbar__dropdown-arrow" />
+          <img src="/images/dropdown-arrow.svg" alt="" className="navbar__dropdown-arrow" />
           {showDropdown && <Dropdown />}
         </div>
       </div>

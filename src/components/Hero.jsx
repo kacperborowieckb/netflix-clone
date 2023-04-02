@@ -22,7 +22,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="hero__age-restriction">13+</div>
-      <Slider title="New Releases" />
+      <Slider title="New Releases" arr={Array.from(Array(12).keys())} />
     </div>
   );
 };

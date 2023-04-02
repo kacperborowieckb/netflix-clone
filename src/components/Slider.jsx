@@ -1,7 +1,7 @@
 import '../global-styles/styles.scss';
 import { useRef, useState } from 'react';
 
-const Slider = ({ title }) => {
+const Slider = ({ title, arr }) => {
   const sliderContainer = useRef();
   const [firstSlide, setFirstSlide] = useState(true);
 
@@ -91,7 +91,7 @@ const Slider = ({ title }) => {
           <img src="/src/assets/previous.svg" alt="" />
         </button>
         <div className="slider__items-container" onTransitionEnd={deleteChilds}>
-          {Array.from(Array(12).keys()).map((i) => {
+          {arr.map((i) => {
             return (
               <div className="slider__item" key={i}>
                 <img

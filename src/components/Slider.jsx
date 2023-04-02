@@ -4,13 +4,14 @@ import { useRef, useState } from 'react';
 const Slider = ({ title, arr }) => {
   const sliderContainer = useRef();
   const [firstSlide, setFirstSlide] = useState(true);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const slideAnimate = (direction) => {
     let slider = sliderContainer.current.querySelector('.slider__items-container');
     let items = getComputedStyle(sliderContainer.current).getPropertyValue('--current-items');
     let clonedSlider = slider.cloneNode(true);
     let childs = [...clonedSlider.children];
-
+    setIsDisabled(true);
     slider.setAttribute('data-direction', direction);
 
     if (direction === 'right') {
@@ -48,6 +49,7 @@ const Slider = ({ title, arr }) => {
     let items = getComputedStyle(sliderContainer.current).getPropertyValue('--current-items');
 
     let direction = e.target.dataset.direction;
+    setIsDisabled(false);
 
     if (direction === 'right') {
       for (let i = 0; i < items; i++) {
@@ -83,6 +85,7 @@ const Slider = ({ title, arr }) => {
       <h3 className="slider__heading">{title}</h3>
       <div className="slider__container">
         <button
+          disabled={isDisabled}
           className="slider__left"
           onClick={() => {
             slideAnimate('left');
@@ -107,6 +110,7 @@ const Slider = ({ title, arr }) => {
         </div>
 
         <button
+          disabled={isDisabled}
           className="slider__right"
           onClick={() => {
             slideAnimate('right');

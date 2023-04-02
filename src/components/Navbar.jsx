@@ -69,8 +69,8 @@ const Navbar = () => {
         </a>
         <ul
           className="navbar__list"
-          onMouseOver={window.innerWidth < 880 && openList}
-          onMouseLeave={window.innerWidth < 880 && closeList}
+          onMouseOver={window.innerWidth < 880 ? openList : undefined}
+          onMouseLeave={window.innerWidth < 880 ? closeList : undefined}
         >
           <li className="navbar__list-item">
             <a href="#">Home</a>

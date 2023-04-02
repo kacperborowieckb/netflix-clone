@@ -94,6 +94,14 @@
     border-left: 3px solid hsla(0, 0%, 100%, 0.8);
   }
 
+  @media (max-width: 800px) {
+    min-height: 800px;
+
+    & &__desc {
+      padding-top: 10rem;
+    }
+  }
+
   @media (max-width: 550px) {
     --fs-desc: 1.15rem;
     --fs-btn: 1rem;

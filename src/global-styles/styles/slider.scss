@@ -63,6 +63,14 @@
   }
   @media (max-width: 800px) {
     --current-items: 3;
+    & &__left > img,
+    & &__right > img {
+      width: 2rem;
+    }
+    & &__left,
+    & &__right {
+      padding: 0;
+    }
   }
   @media (max-width: 500px) {
     --current-items: 2;

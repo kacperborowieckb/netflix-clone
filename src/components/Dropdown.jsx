@@ -8,7 +8,7 @@ const Dropdown = () => {
         <li className="dropdown__list-item">
           <a href="#">
             <img
-              src="/src/assets/lion.jpg"
+              src="/images/lion.jpg"
               alt="profile picture"
               className="dropdown__profile-picture"
             />
@@ -18,7 +18,7 @@ const Dropdown = () => {
         <li className="dropdown__list-item">
           <a href="#">
             <img
-              src="/src/assets/beaver.jpg"
+              src="/images/beaver.jpg"
               alt="profile picture"
               className="dropdown__profile-picture"
             />

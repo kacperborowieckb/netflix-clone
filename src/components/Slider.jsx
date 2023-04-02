@@ -94,11 +94,13 @@ const Slider = ({ title, arr }) => {
           {arr.map((i) => {
             return (
               <div className="slider__item" key={i}>
-                <img
-                  src={'/src/assets/slider-img-' + i + '.jpg'}
-                  alt="film img"
-                  className="slider__img"
-                />
+                <a href="#">
+                  <img
+                    src={'/src/assets/slider-img-' + i + '.jpg'}
+                    alt="film img"
+                    className="slider__img"
+                  />
+                </a>
               </div>
             );
           })}

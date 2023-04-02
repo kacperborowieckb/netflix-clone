@@ -3,8 +3,9 @@ import Dropdown from './Dropdown';
 import { useState, useEffect, useRef } from 'react';
 
 const Navbar = () => {
+  const [checkDropDownTimeout, setCheckDropDownTimeout] = useState();
+  const [checkListTimeout, setCheckListTimeout] = useState();
   const [showDropdown, setShowDropdown] = useState(false);
-  const [checkTimeout, setCheckTimeout] = useState();
 
   const navbar = useRef();
 
@@ -24,61 +25,94 @@ const Navbar = () => {
     }
   };
 
+  const openList = () => {
+    clearTimeout(checkListTimeout);
+    navbar.current.querySelector('.navbar__list').style.display = 'flex';
+  };
+
+  const closeList = () => {
+    setCheckListTimeout(
+      setTimeout(() => {
+        navbar.current.querySelector('.navbar__list').style.display = '';
+      }, 250)
+    );
+  };
+
   const openDropdown = () => {
-    clearTimeout(checkTimeout);
+    clearTimeout(checkDropDownTimeout);
     navbar.current.querySelector('.navbar__dropdown-arrow').style.transform = 'rotate(180deg)';
     setShowDropdown(true);
   };
 
   const closeDropdown = () => {
-    setCheckTimeout(
+    setCheckDropDownTimeout(
       setTimeout(() => {
-        if (showDropdown === true) {
-          navbar.current.querySelector('.navbar__dropdown-arrow').style.transform = 'rotate(0deg)';
-          setShowDropdown(false);
-        }
+        navbar.current.querySelector('.navbar__dropdown-arrow').style.transform = 'rotate(0deg)';
+        setShowDropdown(false);
       }, 250)
     );
   };
 
   return (
     <div className="navbar" ref={navbar}>
-      <img src="/src/assets/netflix-logo.png" alt="netflix logo" className="navbar__logo" />
-      <ul className="navbar__list">
-        <li className="navbar__list-item">
-          <a href="#">Home</a>
-        </li>
-        <li className="navbar__list-item">
-          <a href="#">TV Shows</a>
-        </li>
-        <li className="navbar__list-item">
-          <a href="#">Movies</a>
-        </li>
-        <li className="navbar__list-item">
-          <a href="#">New &amp; Popular</a>
-        </li>
-        <li className="navbar__list-item">
-          <a href="#">My List</a>
-        </li>
-        <li className="navbar__list-item">
-          <a href="#">Browse by Languages</a>
-        </li>
-      </ul>
+      <a href="#">
+        <img src="/src/assets/netflix-logo.png" alt="netflix logo" className="navbar__logo" />
+      </a>
+      <div className="navbar__list-container">
+        <a
+          className="navbar__responsive-nav"
+          href="#"
+          onMouseOver={openList}
+          onMouseLeave={closeList}
+        >
+          Browse <div className="navbar__responsive-nav-arrow"></div>
+        </a>
+        <ul
+          className="navbar__list"
+          onMouseOver={window.innerWidth < 880 && openList}
+          onMouseLeave={window.innerWidth < 880 && closeList}
+        >
+          <li className="navbar__list-item">
+            <a href="#">Home</a>
+          </li>
+          <li className="navbar__list-item">
+            <a href="#">TV Shows</a>
+          </li>
+          <li className="navbar__list-item">
+            <a href="#">Movies</a>
+          </li>
+          <li className="navbar__list-item">
+            <a href="#">New &amp; Popular</a>
+          </li>
+          <li className="navbar__list-item">
+            <a href="#">My List</a>
+          </li>
+          <li className="navbar__list-item">
+            <a href="#">Browse by Languages</a>
+          </li>
+        </ul>
+      </div>
       <div className="navbar__user-section">
-        <img className="navbar__search-icon" src="/src/assets/search-icon.svg" alt="" />
-        <img
-          className="navbar__notifications-icon"
-          src="/src/assets/notification-icon.svg"
-          alt=""
-        />
-        <div className="navbar__profile" onMouseOver={openDropdown} onMouseLeave={closeDropdown}>
+        <a href="#">
+          <img className="navbar__search-icon" src="/src/assets/search-icon.svg" alt="" />
+        </a>
+        <a href="#">
           <img
-            className="navbar__profile-picture"
-            src="/src/assets/profile-picture.jpg"
-            alt="profile picture"
+            className="navbar__notifications-icon"
+            src="/src/assets/notification-icon.svg"
+            alt=""
           />
+        </a>
+        <div className="navbar__profile" onMouseOver={openDropdown} onMouseLeave={closeDropdown}>
+          <a href="#">
+            <img
+              className="navbar__profile-picture"
+              src="/src/assets/profile-picture.jpg"
+              alt="profile picture"
+            />
+          </a>
           <img src="/src/assets/dropdown-arrow.svg" alt="" className="navbar__dropdown-arrow" />
-          {showDropdown ? <Dropdown /> : <></>}
+          {showDropdown && <Dropdown />}
         </div>
       </div>
     </div>

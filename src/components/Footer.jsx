@@ -5,16 +5,16 @@ const Footer = () => {
     <div className="footer">
       <div className="footer__social-media">
         <a href="#">
-          <img src="/src/assets/facebook.svg" alt="" className="footer__social-media-icon" />
+          <img src="/images/facebook.svg" alt="" className="footer__social-media-icon" />
         </a>
         <a href="#">
-          <img src="/src/assets/instagram.svg" alt="" className="footer__social-media-icon" />
+          <img src="/images/instagram.svg" alt="" className="footer__social-media-icon" />
         </a>
         <a href="#">
-          <img src="/src/assets/twitter.svg" alt="" className="footer__social-media-icon" />
+          <img src="/images/twitter.svg" alt="" className="footer__social-media-icon" />
         </a>
         <a href="#">
-          <img src="/src/assets/youtube.svg" alt="" className="footer__social-media-icon" />
+          <img src="/images/youtube.svg" alt="" className="footer__social-media-icon" />
         </a>
       </div>
       <ul className="footer__list">

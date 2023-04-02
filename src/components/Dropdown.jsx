@@ -3,6 +3,7 @@ import '../global-styles/styles.scss';
 const Dropdown = () => {
   return (
     <div className="dropdown">
+      <div className="dropdown__triangle"></div>
       <ul className="dropdown__list">
         <li className="dropdown__list-item">
           <a href="#">

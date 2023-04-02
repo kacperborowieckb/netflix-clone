@@ -1,13 +1,32 @@
 import '../global-styles/styles.scss';
 import Dropdown from './Dropdown';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [checkTimeout, setCheckTimeout] = useState();
 
+  const navbar = useRef();
+
+  useEffect(() => {
+    window.addEventListener('scroll', checkNavbar);
+
+    return () => {
+      window.removeEventListener('scroll', checkNavbar);
+    };
+  }, []);
+
+  const checkNavbar = () => {
+    if (window.scrollY > 80) {
+      navbar.current.style.backgroundColor = 'hsl(0, 0%, 12%)';
+    } else {
+      navbar.current.style.backgroundColor = 'transparent';
+    }
+  };
+
   const openDropdown = () => {
     clearTimeout(checkTimeout);
+    navbar.current.querySelector('.navbar__dropdown-arrow').style.transform = 'rotate(180deg)';
     setShowDropdown(true);
   };
 
@@ -15,6 +34,7 @@ const Navbar = () => {
     setCheckTimeout(
       setTimeout(() => {
         if (showDropdown === true) {
+          navbar.current.querySelector('.navbar__dropdown-arrow').style.transform = 'rotate(0deg)';
           setShowDropdown(false);
         }
       }, 250)
@@ -22,7 +42,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar">
+    <div className="navbar" ref={navbar}>
       <img src="/src/assets/netflix-logo.png" alt="netflix logo" className="navbar__logo" />
       <ul className="navbar__list">
         <li className="navbar__list-item">

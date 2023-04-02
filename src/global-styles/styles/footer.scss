@@ -1,0 +1,61 @@
+.footer {
+  --fs-list-item: 1rem;
+  --fs-service: 0.9rem;
+  --fs-company: 0.8rem;
+  display: grid;
+  gap: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 6rem;
+  padding-bottom: 1.5rem;
+  color: hsl(0, 0%, 50%);
+
+  & &__social-media {
+    display: flex;
+    gap: 1rem;
+  }
+
+  & &__social-media-icon {
+    width: 1.5rem;
+  }
+
+  & &__list {
+    display: grid;
+    list-style: none;
+    row-gap: 1rem;
+    padding: 0;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  & &__list-item {
+    font-size: var(--fs-list-item);
+  }
+
+  & &__service-code {
+    width: fit-content;
+    padding: 0.25rem 0.5rem;
+    font-size: var(--fs-service);
+    border: 1px solid hsl(0, 0%, 50%);
+  }
+
+  & &__company {
+    font-size: var(--fs-company);
+  }
+
+  @media (max-width: 900px) {
+    --fs-list-item: 0.8rem;
+    --fs-service: 0.7rem;
+    --fs-company: 0.6rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
+
+    & &__list {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 2rem;
+    }
+  }
+  @media (max-width: 500px) {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+}

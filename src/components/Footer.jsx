@@ -2,8 +2,8 @@ import '../global-styles/styles.scss';
 
 const Footer = () => {
   return (
-    <div className="footer">
-      <div className="footer__social-media">
+    <footer className="footer">
+      <section className="footer__social-media">
         <a href="#">
           <img src="/images/facebook.svg" alt="" className="footer__social-media-icon" />
         </a>
@@ -16,7 +16,7 @@ const Footer = () => {
         <a href="#">
           <img src="/images/youtube.svg" alt="" className="footer__social-media-icon" />
         </a>
-      </div>
+      </section>
       <ul className="footer__list">
         <li className="footer__list-item">
           <a href="#">Audio Description</a>
@@ -59,7 +59,7 @@ const Footer = () => {
         Service Code
       </a>
       <p className="footer__company">&#169; 1997-2023 Netflix, Inc.</p>
-    </div>
+    </footer>
   );
 };
 

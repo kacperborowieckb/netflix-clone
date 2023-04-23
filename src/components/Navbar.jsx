@@ -54,11 +54,11 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar" ref={navbar}>
+    <header className="navbar" ref={navbar}>
       <a href="#">
         <img src="/images/netflix-logo.png" alt="netflix logo" className="navbar__logo" />
       </a>
-      <div className="navbar__list-container">
+      <nav className="navbar__list-container">
         <a
           className="navbar__responsive-nav"
           href="#"
@@ -91,8 +91,8 @@ const Navbar = () => {
             <a href="#">Browse by Languages</a>
           </li>
         </ul>
-      </div>
-      <div className="navbar__user-section">
+      </nav>
+      <section className="navbar__user-section">
         <a href="#">
           <img className="navbar__search-icon" src="/images/search-icon.svg" alt="" />
         </a>
@@ -110,8 +110,8 @@ const Navbar = () => {
           <img src="/images/dropdown-arrow.svg" alt="" className="navbar__dropdown-arrow" />
           {showDropdown && <Dropdown />}
         </div>
-      </div>
-    </div>
+      </section>
+    </header>
   );
 };
 

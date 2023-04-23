@@ -2,7 +2,7 @@ import '../global-styles/styles.scss';
 
 const Dropdown = () => {
   return (
-    <div className="dropdown">
+    <article className="dropdown">
       <div className="dropdown__triangle"></div>
       <ul className="dropdown__list">
         <li className="dropdown__list-item">
@@ -26,10 +26,10 @@ const Dropdown = () => {
           </a>
         </li>
       </ul>
-      <div className="dropdown__log-out">
+      <section className="dropdown__log-out">
         <a href="#">Sign out of Netflix</a>
-      </div>
-    </div>
+      </section>
+    </article>
   );
 };
 

@@ -12,10 +12,10 @@ const Main = () => {
   };
 
   return (
-    <div className="main">
+    <section className="main">
       <Slider title="Continue Watching" arr={shuffleArray(Array.from(Array(12).keys()))} />
       <Slider title="Trending Now" arr={shuffleArray(Array.from(Array(12).keys()))} />
-    </div>
+    </section>
   );
 };
 

@@ -81,7 +81,7 @@ const Slider = ({ title, arr }) => {
   };
 
   return (
-    <div className="slider" ref={sliderContainer}>
+    <section className="slider" ref={sliderContainer}>
       <h3 className="slider__heading">{title}</h3>
       <div className="slider__container">
         <button
@@ -119,7 +119,7 @@ const Slider = ({ title, arr }) => {
           <img src="/images/next.svg" alt="" />
         </button>
       </div>
-    </div>
+    </section>
   );
 };
 

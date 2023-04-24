@@ -1,4 +1,4 @@
-# netflix-clone
+# Netflix clone
 
 ## About the project
 Netflix design clone with circular carousels for practice my css skills, creating user interface elements more interactive and for correct use of component approach.
